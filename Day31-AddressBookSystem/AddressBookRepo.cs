@@ -27,7 +27,7 @@ namespace Day31_AddressBookSystem
             }
             finally
             {
-                this.connection.Close();
+                this.connection.Close(); 
             }
         }
         public bool AddContact(AddressBookModel model)
