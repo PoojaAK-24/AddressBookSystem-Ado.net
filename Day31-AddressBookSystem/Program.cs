@@ -55,7 +55,7 @@ namespace Day31_AddressBookSystem
                             Console.ReadKey();
                             break;
                         case 3:
-                            delmodel.First_Name = "Balanagireddy";
+                            delmodel.First_Name = "Pooja";
                             abrepo.DeleteContactUsingName(delmodel);
                             Console.ReadKey();
                             break;

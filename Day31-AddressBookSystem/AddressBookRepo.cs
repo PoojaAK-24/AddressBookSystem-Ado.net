@@ -18,12 +18,12 @@ namespace Day31_AddressBookSystem
                 using (this.connection)
                 {
                     connection.Open();
-                    Console.WriteLine("Database_Connected_Successfully....");
+                    Console.WriteLine("Database Connected Successfully....");
                 }
             }
             catch
             {
-                Console.WriteLine("Database_NOT_Connected!!!");
+                Console.WriteLine("Database not Connected!!!");
             }
             finally
             {
@@ -131,8 +131,8 @@ namespace Day31_AddressBookSystem
                 using (this.connection)
                 {
                     using (SqlCommand command = new SqlCommand(
-                        @"SELECT * FROM address_books WHERE city = 'Parbhani' OR state = 'Kerala'; 
-                            SELECT * FROM address_books WHERE city = 'Hyderabad' OR state = 'Telengana';", connection))
+                        @"SELECT * FROM address_books WHERE city = 'Pooja' OR state = 'Karnataka'; 
+                            SELECT * FROM address_books WHERE city = 'Shimoga' OR state = 'Karnataka';", connection))
                     {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -186,8 +186,8 @@ namespace Day31_AddressBookSystem
                 using (this.connection)
                 {
                     using (SqlCommand command = new SqlCommand(
-                        @"select count(first_name) from address_book WHERE city = 'Nuziveedu' AND state = 'AndhraPradesh'; 
-                        select count(first_name) from address_book WHERE city = 'Californiya' AND state = 'Telengana';", connection))
+                        @"select count(first_name) from address_books WHERE city = 'Shimoga' AND state = 'Karnataka'; 
+                        select count(first_name) from address_books WHERE city = 'shant' AND state = 'Karnataka';", connection))
                     {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader())
@@ -195,14 +195,14 @@ namespace Day31_AddressBookSystem
                             while (reader.Read())
                             {
                                 int count = reader.GetInt32(0);
-                                Console.WriteLine("Total Contacts From City Nuziveedu And State AndhraPradesh: {0}", +count);
+                                Console.WriteLine("Total Contacts From City Shimoga And State Karnataka: {0}", +count);
                             }
                             if (reader.NextResult())
                             {
                                 while (reader.Read())
                                 {
                                     int count = reader.GetInt32(0);
-                                    Console.WriteLine("Total Contacts From City Californiya And State Telengana: {0}", +count);
+                                    Console.WriteLine("Total Contacts From City shant And State Karnataka: {0}", +count);
                                 }
                             }
                         }
@@ -223,13 +223,13 @@ namespace Day31_AddressBookSystem
                 using (this.connection)
                 {
                     using (SqlCommand command = new SqlCommand(
-                        @"SELECT * FROM address_book WHERE city = 'Nuziveedu' order by first_name; 
-                        SELECT * FROM address_book WHERE city = 'Californiya' order by first_name, last_name;", connection))
+                        @"SELECT * FROM address_books WHERE city = 'Shimoga' order by first_name; 
+                        SELECT * FROM address_books WHERE city = 'shant' order by first_name, last_name;", connection))
                     {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            Console.WriteLine("Sorted Contact Using first name from Nuziveedu");
+                            Console.WriteLine("Sorted Contact Using first name from city");
                             Console.WriteLine("===========================================");
                             while (reader.Read())
                             {
@@ -248,7 +248,7 @@ namespace Day31_AddressBookSystem
                             }
                             if (reader.NextResult())
                             {
-                                Console.WriteLine("Sorted Contact Using First_Name from Californiya");
+                                Console.WriteLine("Sorted Contact Using First_Name from city");
                                 Console.WriteLine("===========================================");
                                 while (reader.Read())
                                 {
@@ -284,14 +284,14 @@ namespace Day31_AddressBookSystem
                 using (this.connection)
                 {
                     using (SqlCommand command = new SqlCommand(
-                        @"SELECT * FROM address_book WHERE addressbooktype = 'family'; 
-                        SELECT * FROM address_book WHERE addressbooktype = 'friend';
-                        SELECT * FROM address_book WHERE addressbooktype = 'office';", connection))
+                        @"SELECT * FROM address_books WHERE addressbooktype = 'family'; 
+                        SELECT * FROM address_books WHERE addressbooktype = 'friend';
+                        SELECT * FROM address_books WHERE addressbooktype = 'office';", connection))
                     {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader())
                         {
-                            Console.WriteLine("identify each addrass book by person name");
+                            Console.WriteLine("Identify each address book by person name");
                             Console.WriteLine("===========================================");
                             while (reader.Read())
                             {
@@ -310,7 +310,7 @@ namespace Day31_AddressBookSystem
                             }
                             if (reader.NextResult())
                             {
-                                Console.WriteLine("identify each addrass book by person name");
+                                Console.WriteLine("Identify each address book by person name");
                                 Console.WriteLine("===========================================");
                                 while (reader.Read())
                                 {
@@ -330,7 +330,7 @@ namespace Day31_AddressBookSystem
                             }
                             if (reader.NextResult())
                             {
-                                Console.WriteLine("identify each addrass book by person name");
+                                Console.WriteLine("Identify each address book by person name");
                                 Console.WriteLine("===========================================");
                                 while (reader.Read())
                                 {
@@ -366,9 +366,9 @@ namespace Day31_AddressBookSystem
                 using (this.connection)
                 {
                     using (SqlCommand command = new SqlCommand(
-                        @"SELECT COUNT(first_name) FROM address_book WHERE addressbooktype = 'family'; 
-                        SELECT COUNT(first_name) FROM address_book WHERE addressbooktype = 'friend';
-                        SELECT COUNT(first_name) FROM address_book WHERE addressbooktype = 'office';", connection))
+                        @"SELECT COUNT(first_name) FROM address_books WHERE addressbooktype = 'family'; 
+                        SELECT COUNT(first_name) FROM address_books WHERE addressbooktype = 'friend';
+                        SELECT COUNT(first_name) FROM address_books WHERE addressbooktype = 'office';", connection))
                     {
                         connection.Open();
                         using (SqlDataReader reader = command.ExecuteReader())
