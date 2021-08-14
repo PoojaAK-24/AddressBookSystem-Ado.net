@@ -36,3 +36,4 @@ go
 
 select * from address_books
 use addressbook_service
+select * from address_books
