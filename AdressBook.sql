@@ -36,4 +36,3 @@ go
 
 select * from address_books
 use addressbook_service
-delete from address_books where first_name='Balanagireddy';
